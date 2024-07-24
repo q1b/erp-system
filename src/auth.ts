@@ -13,11 +13,11 @@ export const { handle, signIn, signOut } = SvelteKitAuth(async () => ({
         strategy: 'jwt',
     },
     callbacks: {
-        signIn({ profile }) {
-            if (!profile) return false
-            if(!profile.email) return false
-            return profile.email.endsWith("@srisriuniversity.edu.in")
-        },
+        // signIn({ profile }) {
+        //     if(!profile) return false
+        //     if(!profile.email) return false
+        //     return profile.email.endsWith("@srisriuniversity.edu.in")
+        // },
         jwt({ token, user }) {
             if (user) { // User is available during sign-in
                 token.id = user.id
@@ -29,5 +29,6 @@ export const { handle, signIn, signOut } = SvelteKitAuth(async () => ({
             return session
         },
     },
-    secret: AUTH_SECRET
+    secret: AUTH_SECRET,
+    trustHost: true,
 }))
