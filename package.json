@@ -33,6 +33,7 @@
 	"dependencies": {
 		"@auth/drizzle-adapter": "^1.4.1",
 		"@auth/sveltekit": "^1.4.1",
+		"@libsql/client": "^0.3.6",
 		"@sveltejs/adapter-vercel": "^5.4.1",
 		"drizzle-orm": "^0.32.1"
 	}
