@@ -1,6 +1,11 @@
+// NOT IN USE
 import { integer, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { userTable } from "./user";
 
+// AuthenticatorTable
+// A webauthn authenticator. 
+// Represents an entity capable of authenticating the account it references, 
+// and contains the auhtenticator’s credentials and related information.
 export const authenticatorTable = sqliteTable(
   "authenticator",
   {

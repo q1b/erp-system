@@ -7,6 +7,7 @@
 	<nav>
         {#if data.session?.user}
             <strong>{data.session?.user?.email}</strong>
+            <em>{data.session?.user?.role}</em>
             <br/>
             <SignOut>
                 <span slot="submitButton">Sign Out</span>

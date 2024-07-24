@@ -1,9 +1,18 @@
+CREATE TABLE (
+	`id` text PRIMARY KEY NOT NULL,
+	`label` text NOT NULL,
+	`description` text
+);
+--> statement-breakpoint
 CREATE TABLE `user` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`email` text NOT NULL,
 	`emailVerified` integer,
-	`image` text
+	`image` text,
+	`role` text DEFAULT 'user',
+	`created_at` text DEFAULT (current_timestamp),
+	FOREIGN KEY (`role`) REFERENCES `role`(`id`) ON UPDATE cascade ON DELETE set default
 );
 --> statement-breakpoint
 CREATE TABLE `account` (
