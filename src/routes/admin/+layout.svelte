@@ -1,5 +1,6 @@
 <script lang="ts">
-	import {
+	import CardRoot from '$lib/components/ui/card/card.svelte';
+import {
 		HomeIcon,
 		UsersRoundIcon,
 		Layers3Icon,
@@ -43,8 +44,8 @@
 		</nav>
 	</aside>
 	<main class="pl-64 pr-6 py-6">
-		<div class="p-6 bg-white rounded-lg shadow">
+		<CardRoot>
 			{@render children()}
-		</div>
+		</CardRoot>
 	</main>
 </div>
