@@ -3,7 +3,9 @@
 	
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
-	
+
+	import { Toaster } from "$lib/components/ui/sonner";
+
 	onMount(async () => {
 		if (pwaInfo) {
 			const { registerSW } = await import('virtual:pwa-register');
@@ -28,6 +30,8 @@
 	<meta name="description" content="ERP Portal for students, staff of Sri Sri University">
 	{@html webManifestLink}
 </svelte:head>
+
+<Toaster />
 
 <main>
 	{@render children()}
