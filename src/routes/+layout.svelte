@@ -1,7 +1,9 @@
 <script>
+	import "../app.css"
+	
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
-    
+	
 	onMount(async () => {
 		if (pwaInfo) {
 			const { registerSW } = await import('virtual:pwa-register');
@@ -27,4 +29,6 @@
 	{@html webManifestLink}
 </svelte:head>
 
-{@render children()}
+<main>
+	{@render children()}
+</main>

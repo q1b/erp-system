@@ -18,16 +18,19 @@
 		"@types/eslint": "^8.56.7",
 		"@vite-pwa/assets-generator": "^0.2.4",
 		"@vite-pwa/sveltekit": "^0.6.0",
+		"autoprefixer": "^10.4.19",
 		"dotenv": "^16.4.5",
 		"drizzle-kit": "^0.23.0",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.36.0",
 		"globals": "^15.0.0",
+		"postcss": "^8.4.40",
 		"prettier": "^3.1.1",
 		"prettier-plugin-svelte": "^3.1.2",
 		"svelte": "^5.0.0-next.1",
 		"svelte-check": "^3.6.0",
+		"tailwindcss": "^3.4.7",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0-alpha.20",
@@ -38,7 +41,12 @@
 		"@auth/drizzle-adapter": "^1.4.1",
 		"@auth/sveltekit": "^1.4.1",
 		"@libsql/client": "^0.7.0",
+		"@lucide/lab": "^0.1.2",
 		"@sveltejs/adapter-vercel": "^5.4.1",
-		"drizzle-orm": "^0.32.1"
+		"clsx": "^2.1.1",
+		"drizzle-orm": "^0.32.1",
+		"lucide-svelte": "^0.416.0",
+		"tailwind-merge": "^2.4.0",
+		"tailwind-variants": "^0.2.1"
 	}
 }

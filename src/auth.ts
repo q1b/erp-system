@@ -27,6 +27,7 @@ export const { handle, signIn, signOut } = SvelteKitAuth(async () => ({
     adapter: DrizzleAdapter(db),
     providers: [
         Google({
+            allowDangerousEmailAccountLinking: true,
             clientId: AUTH_GOOGLE_ID,
             clientSecret: AUTH_GOOGLE_SECRET,
         })
