@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ArrowLeftCircleIcon } from "lucide-svelte";
 	import * as Card from '$lib/components/ui/card/index.js';
-	import CreateCourseForm from "./create-course-form.svelte";
+	import CreateUserForm from "./create-user-form.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	const { data } = $props();
 </script>
@@ -14,11 +14,11 @@
 
 <Card.Root class="mx-auto max-w-sm w-full">
 	<Card.Header>
-		<Card.Title class="text-2xl">Add New Course</Card.Title>
-		<Card.Description>Give your course a name </Card.Description>
+		<Card.Title class="text-2xl">New User</Card.Title>
+		<Card.Description>Create a New User</Card.Description>
 	</Card.Header>
 	<Card.Content>
-<CreateCourseForm data={data.courseForm} />
+<CreateUserForm data={data.courseForm} />
 </Card.Content>
 </Card.Root>
 </main>

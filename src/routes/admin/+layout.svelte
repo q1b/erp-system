@@ -61,7 +61,7 @@
 						{#each navItems as navItem}
 							{@const Icon = navItem.icon}
 							<a onclick={() => {open = false}} href={navItem.href} class="w-full flex gap-x-2 items-center hover:bg-gray-100 p-1.5">
-								<Icon size={20} />
+								<Icon size={20} fill="#000000" />
 								<span class="truncate text-base/6 font-medium text-gray-600">{navItem.name}</span>
 							</a>
 						{/each}
