@@ -11,4 +11,4 @@ export const getCreateCourseForm = async (event?:RequestEvent) => {
     return await superValidate(event, cache)
 };
 
-export type CreateCourseForm = SuperValidated<Infer<CreateCourseSchema>>
+export type CreateCourseFormType = SuperValidated<Infer<CreateCourseSchema>>

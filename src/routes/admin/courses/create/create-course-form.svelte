@@ -14,9 +14,9 @@
 	}: {
 		data: CreateCourseForm;
 		onresult?: () => void;
-		class:string
+		class?:string
 	} = $props();
-
+	
 	let toastId = $state<number | string>(0);
 	const form = superForm(data, {
 		validators: zodClient(createCourseSchema),
