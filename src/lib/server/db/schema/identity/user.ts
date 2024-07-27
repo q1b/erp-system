@@ -1,5 +1,7 @@
 import { integer, text } from "drizzle-orm/sqlite-core";
 import { createdAt, id, table } from "../../helpers";
+import { relations } from "drizzle-orm";
+import { accountTable } from "./account";
 
 export const userTable = table("user", {
   id,
@@ -11,8 +13,17 @@ export const userTable = table("user", {
   createdAt,
 })
 
+export const userRelations = relations(userTable, ({ one, many }) => ({
+  role: one(roleTable),
+  accounts: many(accountTable)
+}))
+
 export const roleTable = table("role", {
     id: text("id").primaryKey(),
     label: text("label").notNull(),
     description: text("description"),
 })
+
+export const roleRelations = relations(roleTable, ({ many }) =>  ({
+  users: many(userTable)
+}))

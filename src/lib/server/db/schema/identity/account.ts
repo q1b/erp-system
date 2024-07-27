@@ -1,5 +1,6 @@
 import { integer, primaryKey, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { userTable } from "./user";
+import { relations } from "drizzle-orm";
 
 type WebAuthnProviderType = "webauthn";
 
@@ -30,3 +31,10 @@ export const accountTable = sqliteTable(
     }),
   })
 )
+
+export const accountRelations = relations(accountTable, ({ one }) => ({
+  user: one(userTable, {
+    fields: [accountTable.userId],
+    references: [userTable.id]
+  })
+}))
