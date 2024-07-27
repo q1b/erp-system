@@ -5,14 +5,14 @@
 	import { superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { toast } from 'svelte-sonner';
-	import type { CreateCourseForm } from '.';
+	import type { CreateCourseFormType } from './index';
 
 	const {
 		data,
 		onresult = () => {},
 		class: className = ''
 	}: {
-		data: CreateCourseForm;
+		data: CreateCourseFormType;
 		onresult?: () => void;
 		class?:string
 	} = $props();
@@ -32,7 +32,7 @@
 	const { form: formData, enhance, delayed } = form;
 </script>
 
-<form class={className} method="POST" use:enhance action="/admin/courses/create/?default">
+<form class={className} method="POST" use:enhance action="/admin/courses/create?/default">
 	<Form.Field {form} name="name">
 		<Form.Control let:attrs>
 			<Form.Label>Name</Form.Label>

@@ -30,9 +30,9 @@
 	<Drawer.Root bind:open>
 		<Drawer.Content>
 			<Drawer.Header class="text-left">
-				<Drawer.Title>Edit profile</Drawer.Title>
+				<Drawer.Title>Add Course</Drawer.Title>
 				<Drawer.Description>
-					Make changes to your profile here. Click save when you're done.
+					Add a new course to your list
 				</Drawer.Description>
 			</Drawer.Header>
 			<CreateCourseForm class="px-4" onresult={() => (open = false)} data={data} />

@@ -3,15 +3,11 @@
 	import * as Card from '$lib/components/ui/card';
 	import * as Table from '$lib/components/ui/table';
 	import {
-		DotSquareIcon,
-		InfoIcon,
-		MenuIcon,
-		MoreVerticalIcon,
-		MoveVerticalIcon,
-		Trash2Icon
+		MoreVerticalIcon
 	} from 'lucide-svelte';
 	import CreateCourseDialog from './create/create-course-dialog.svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
+	import { enhance } from '$app/forms';
 
 	let { data } = $props();
 	let open = $state(false);
@@ -58,7 +54,14 @@
 									<MoreVerticalIcon size="20" />
 								</DropdownMenu.Trigger>
 								<DropdownMenu.Content sideOffset={2} >
-									<DropdownMenu.Item>More Details</DropdownMenu.Item>
+									<Button type="submit" variant="ghost" size="sm" class="w-full flex justify-between">
+										More Info
+									</Button>
+									<form method="POST" action="/admin/courses/{course.id}?/delete" use:enhance>
+										<Button type="submit" variant="ghost" size="sm" class="w-full flex justify-between">
+											Delete
+										</Button>
+									</form>
 								</DropdownMenu.Content>
 							</DropdownMenu.Root>
 						</Table.Cell>
