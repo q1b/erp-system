@@ -9,10 +9,12 @@
 
 	const {
 		data,
-		onresult = () => {}
+		onresult = () => {},
+		class: className = ''
 	}: {
 		data: CreateCourseForm;
 		onresult?: () => void;
+		class:string
 	} = $props();
 
 	let toastId = $state<number | string>(0);
@@ -30,7 +32,7 @@
 	const { form: formData, enhance, delayed } = form;
 </script>
 
-<form method="POST" use:enhance action="/admin/courses/create/?default">
+<form class={className} method="POST" use:enhance action="/admin/courses/create/?default">
 	<Form.Field {form} name="name">
 		<Form.Control let:attrs>
 			<Form.Label>Name</Form.Label>

@@ -1,4 +1,5 @@
 <script>
+	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import * as Drawer from '$lib/components/ui/drawer';
@@ -18,7 +19,8 @@
 		<Card.Title>Courses</Card.Title>
 		<Card.Description>Manage your courses list</Card.Description>
 	</Card.Header>
-	<button onclick={() => (open = true)} class={button}>Add Course</button>
+	<Button onclick={() => {open = true}}>Add Course</Button>
+	<!-- <button onclick={() => (open = true)} class={button}>Add Course</button> -->
 </div>
 <Card.Content>
 	<p>Card Content</p>
@@ -43,12 +45,12 @@
 					Make changes to your profile here. Click save when you're done.
 				</Drawer.Description>
 			</Drawer.Header>
-			<CreateCourseForm onresult={() => (open = false)} data={data.courseForm} />
-			<!-- <Drawer.Footer class="pt-2">
+			<CreateCourseForm class="px-4" onresult={() => (open = false)} data={data.courseForm} />
+			<Drawer.Footer class="pt-2">
 				<Drawer.Close asChild let:builder>
 					<Button variant="outline" builders={[builder]}>Cancel</Button>
 				</Drawer.Close>
-			</Drawer.Footer> -->
+			</Drawer.Footer>
 		</Drawer.Content>
 	</Drawer.Root>
 {/if}
