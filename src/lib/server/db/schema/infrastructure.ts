@@ -5,6 +5,7 @@ import { lectureTable } from "./program/lecture";
 
 export const roomTable = table('room', {
     id,
+    number: text('number'),
     buildingId: text('building_id').references(() => buildingTable.id),
     capacity: text('capacity'),
 });

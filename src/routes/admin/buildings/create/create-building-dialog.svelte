@@ -1,0 +1,46 @@
+<script lang="ts">
+	import Button from '$lib/components/ui/button/button.svelte';
+    import * as Dialog from '$lib/components/ui/dialog';
+	import * as Drawer from '$lib/components/ui/drawer';
+	import { type CreateBuildingFormType } from './index.js';
+	import CreateBuildingForm from './create-building-form.svelte';
+
+    let { data, open = $bindable(), }: {
+        open?: boolean;
+        data: CreateBuildingFormType;
+    } = $props();
+
+	let isDesktop = $state(true);
+	$effect(() => {
+		isDesktop = window.matchMedia('(min-width: 768px)').matches;
+	});
+</script>
+
+{#if isDesktop}
+	<Dialog.Root bind:open>
+		<Dialog.Content class="sm:max-w-[425px]">
+			<Dialog.Header>
+				<Dialog.Title>Building</Dialog.Title>
+				<Dialog.Description>Building contains multiple rooms, each room has some lecture going on, or booked for some other purpose like office</Dialog.Description>
+			</Dialog.Header>
+			<CreateBuildingForm onresult={() => (open = false)} data={data} />
+		</Dialog.Content>
+	</Dialog.Root>
+{:else}
+	<Drawer.Root bind:open>
+		<Drawer.Content>
+			<Drawer.Header class="text-left">
+				<Drawer.Title>Building</Drawer.Title>
+				<Drawer.Description>
+					Building contains multiple rooms, each room has some lecture going on, or booked for some other purpose like office
+				</Drawer.Description>
+			</Drawer.Header>
+			<CreateBuildingForm class="px-4" onresult={() => (open = false)} data={data} />
+			<Drawer.Footer class="pt-2">
+				<Drawer.Close asChild let:builder>
+					<Button variant="outline" builders={[builder]}>Cancel</Button>
+				</Drawer.Close>
+			</Drawer.Footer>
+		</Drawer.Content>
+	</Drawer.Root>
+{/if}

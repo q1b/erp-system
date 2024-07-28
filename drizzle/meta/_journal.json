@@ -15,6 +15,13 @@
       "when": 1722127683150,
       "tag": "0001_amused_blockbuster",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1722187144429,
+      "tag": "0002_funny_phantom_reporter",
+      "breakpoints": true
     }
   ]
 }
