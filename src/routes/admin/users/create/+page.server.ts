@@ -5,7 +5,7 @@ import { validateUser } from '$lib/server/index.js';
 
 export const load: PageServerLoad = async () => {
   return {
-    courseForm: await getCreateUserForm(),
+    userForm: await getCreateUserForm(),
   };
 };
 
@@ -13,7 +13,7 @@ export const actions: Actions = {
   default: async (event) => {
     await validateUser(event);
     const form = await getCreateUserForm(event);
-    if (!form.valid) return fail(400, {form})
+    if (!form.valid) return fail(400, {form});
     return {
       form
     }

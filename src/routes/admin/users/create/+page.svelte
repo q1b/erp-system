@@ -18,7 +18,7 @@
 		<Card.Description>Create a New User</Card.Description>
 	</Card.Header>
 	<Card.Content>
-<CreateUserForm data={data.courseForm} />
+<CreateUserForm data={data.userForm} />
 </Card.Content>
 </Card.Root>
 </main>
