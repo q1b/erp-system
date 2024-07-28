@@ -7,6 +7,8 @@ export * from "./identity/account"
 // export * from "./identity/session"
 // export * from "./identity/verification-token"
 
+export * from "./domain"
+
 export * from "./program/index"
 
 export * from "./program/course/index"

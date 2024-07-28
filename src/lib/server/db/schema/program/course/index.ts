@@ -4,6 +4,7 @@ import { relations } from "drizzle-orm";
 import { resourceTable } from "./resource";
 import { courseModuleTable } from "./module";
 import { lectureTable } from "../lecture";
+import { createInsertSchema } from 'drizzle-zod';
 
 export const courseTable = table('course', {
     id,
@@ -11,7 +12,9 @@ export const courseTable = table('course', {
     code: text('code').notNull(),
     createdAt
 });
- 
+
+export const createCourseSchema = createInsertSchema(courseTable);
+
 export const courseRelation = relations(courseTable, ({ many }) => ({
     resources: many(resourceTable),
     modules: many(courseModuleTable),

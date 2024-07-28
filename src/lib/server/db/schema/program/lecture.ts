@@ -10,10 +10,10 @@ import { roomTable } from "../infrastructure";
 export const lectureTable = table('lecture', {
     id,
     semester: integer('semester'),
-    roomId: text('roomId').references(() => roomTable.id),
-    professorId: text('professor_id').references(() => professorTable.id),
-    batchId: text('batch_id').references(() => batchTable.id),
-    courseId: text('course_id').references(() => courseTable.id),
+    roomId: text('roomId').references(() => roomTable.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    professorId: text('professor_id').references(() => professorTable.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    batchId: text('batch_id').references(() => batchTable.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    courseId: text('course_id').references(() => courseTable.id , { onDelete: 'set null', onUpdate: 'cascade' }),
 })
 
 export const lectureRelation = relations(lectureTable, ({ one, many }) => ({

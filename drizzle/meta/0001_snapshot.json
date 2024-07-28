@@ -1,9 +1,39 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "8353334b-3a3b-48b0-9da0-0e11518d8aca",
-  "prevId": "fa86e8da-74a7-4011-a9dd-e218caf5daac",
+  "id": "6752910a-7c95-4a91-9fe1-8953d18b1bef",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
+    "domain": {
+      "name": "domain",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "building": {
       "name": "building",
       "columns": {
@@ -154,6 +184,13 @@
           "autoincrement": false,
           "default": "'user'"
         },
+        "student_id": {
+          "name": "student_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "created_at": {
           "name": "created_at",
           "type": "text",
@@ -177,6 +214,19 @@
           ],
           "onDelete": "set default",
           "onUpdate": "cascade"
+        },
+        "user_student_id_student_id_fk": {
+          "name": "user_student_id_student_id_fk",
+          "tableFrom": "user",
+          "tableTo": "student",
+          "columnsFrom": [
+            "student_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
@@ -364,8 +414,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
         }
       },
       "compositePrimaryKeys": {},
@@ -534,8 +584,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
         }
       },
       "compositePrimaryKeys": {},
@@ -721,8 +771,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
         },
         "period_lecture_id_lecture_id_fk": {
           "name": "period_lecture_id_lecture_id_fk",
@@ -734,8 +784,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
         }
       },
       "compositePrimaryKeys": {},
@@ -871,8 +921,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "set null",
+          "onUpdate": "cascade"
         },
         "lecture_professor_id_professor_id_fk": {
           "name": "lecture_professor_id_professor_id_fk",
@@ -884,8 +934,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "set null",
+          "onUpdate": "cascade"
         },
         "lecture_batch_id_batch_id_fk": {
           "name": "lecture_batch_id_batch_id_fk",
@@ -897,8 +947,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "set null",
+          "onUpdate": "cascade"
         },
         "lecture_course_id_course_id_fk": {
           "name": "lecture_course_id_course_id_fk",
@@ -910,8 +960,8 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "set null",
+          "onUpdate": "cascade"
         }
       },
       "compositePrimaryKeys": {},

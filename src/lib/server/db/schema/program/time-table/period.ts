@@ -10,13 +10,17 @@ export const periodTable = table('period', {
     day: text('day', { enum: ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'] }).notNull(),
     startAt: text("start_at"),
     duration: integer("duration"),
-    timetableId: text('timetable_id').references(() => timetableTable.id),
-    lectureId: text('lecture_id').references(() => lectureTable.id)
+    timetableId: text('timetable_id').references(() => timetableTable.id, {onDelete: 'cascade', onUpdate: 'cascade'}),
+    lectureId: text('lecture_id').references(() => lectureTable.id, {onDelete: 'cascade', onUpdate: 'cascade'})
 })
 
 export const periodRelation = relations(periodTable, ({ one }) => ({
     timetable: one(timetableTable, {
         fields: [periodTable.timetableId],
         references: [timetableTable.id]
+    }),
+    lecture: one(lectureTable, {
+        fields: [periodTable.lectureId],
+        references: [lectureTable.id]
     })
 }))

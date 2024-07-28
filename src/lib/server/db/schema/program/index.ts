@@ -20,7 +20,7 @@ export const specializationTable = table('specialization', {
     id,
     name: text('name').notNull(),
     shortName: text('short_name').notNull(),
-    programId: text('program_id').references(() => programTable.id)
+    programId: text('program_id').references(() => programTable.id, { onDelete: 'cascade', onUpdate: 'cascade' })
 })
 
 export const specializationRelation = relations(specializationTable, ({ one,many }) => ({
