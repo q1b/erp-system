@@ -15,6 +15,7 @@
 		{ name: 'Home', href: '/admin', icon: HomeIcon },
 		{ name: 'Users', href: '/admin/users', icon: UsersRoundIcon },
 		{ name: 'Programs', href: '/admin/programs', icon: Layers3Icon },
+		{ name: 'Specialization', href: '/admin/specialization', icon: Layers3Icon },
 		{ name: 'Courses', href: '/admin/courses', icon: Layers3Icon },
 		{ name: 'Time Tables', href: '/admin/time-tables', icon: Table2Icon }
 	];
