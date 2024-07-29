@@ -16,6 +16,20 @@ export const batchTable = table('batch', {
     createdAt
 })
 
+export const batchSectionTable = table('batch_section', {
+    id,
+    name: text('name').notNull(), // A, B
+    batchId: text('batch_id').references(() => batchTable.id),
+})
+
+export const batchSectionRelation = relations(batchSectionTable, ({ one, many }) => ({
+    batch: one(batchTable, {
+        fields: [batchSectionTable.batchId],
+        references: [batchTable.id]
+    }),
+    students: many(studentTable)
+}))
+
 export const batchRelation = relations(batchTable, ({ one,many }) => ({
     timeTable: one(timetableTable, {
         fields: [batchTable.timetableId],
