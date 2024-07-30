@@ -28,6 +28,7 @@
 		"eslint-plugin-svelte": "^2.36.0",
 		"formsnap": "^1.0.1",
 		"globals": "^15.0.0",
+		"just-group-by": "^2.2.0",
 		"lucide-svelte": "^0.416.0",
 		"postcss": "^8.4.40",
 		"prettier": "^3.1.1",
