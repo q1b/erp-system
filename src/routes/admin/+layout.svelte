@@ -21,7 +21,7 @@
 		{ name: 'Programs', href: '/admin/programs', icon: BlocksIcon },
 		{ name: 'Specializations', href: '/admin/specialization', icon: SparkleIcon },
 		{ name: 'Courses', href: '/admin/courses', icon: Layers3Icon },
-		{ name: 'Time Tables', href: '/admin/time-tables', icon: Table2Icon },
+		{ name: 'Time Tables', href: '/admin/timetable', icon: Table2Icon },
 	];
 
 	let { children } = $props();

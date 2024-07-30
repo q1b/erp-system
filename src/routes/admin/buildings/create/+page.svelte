@@ -1,7 +1,7 @@
 <script lang="ts">
     import { ArrowLeftCircleIcon } from "lucide-svelte";
     import * as Card from "$lib/components/ui/card/index.js";
-    import CreateBuildingForm from "./create-building-form.svelte.js";
+    import CreateBuildingForm from "./create-building-form.svelte";
     import Button from "$lib/components/ui/button/button.svelte";
     const { data } = $props();
 </script>

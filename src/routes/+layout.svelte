@@ -33,6 +33,4 @@
 
 <Toaster />
 
-<main>
-	{@render children()}
-</main>
+{@render children()}
