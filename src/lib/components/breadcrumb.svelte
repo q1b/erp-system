@@ -1,10 +1,10 @@
 <script lang="ts">
-	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
 	import * as Drawer from '$lib/components/ui/drawer/index.js';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
+	import { EllipsisIcon, ChevronRightIcon, HomeIcon } from 'lucide-svelte';
 
-    let { items } : { items: Array<{href?:string; label: string}> } = $props()
+	let { items }: { items: Array<{ href?: string; label: string }> } = $props();
 
 	const ITEMS_TO_DISPLAY = 3;
 
@@ -16,20 +16,22 @@
 	});
 </script>
 
-<Breadcrumb.Root>
-	<Breadcrumb.List>
-		<Breadcrumb.Item>
-			<Breadcrumb.Link href={items[0].href}>
-				{items[0].label}
-			</Breadcrumb.Link>
-		</Breadcrumb.Item>
-		<Breadcrumb.Separator />
+<nav class="flex" aria-label="Breadcrumb">
+	<ol role="list" class="flex items-center gap-x-1.5 ">
+		<li>
+			<div>
+				<a href={items[0].href} class="text-muted-foreground hover:text-foreground transition-colors">
+					<HomeIcon size={20} class="shrink-0" />
+					<span class="sr-only">{items[0].label}</span>
+				</a>
+			</div>
+		</li>
 		{#if items.length > ITEMS_TO_DISPLAY}
-			<Breadcrumb.Item>
+			<li>
 				{#if isDesktop}
 					<DropdownMenu.Root bind:open>
 						<DropdownMenu.Trigger class="flex items-center gap-1" aria-label="Toggle menu">
-							<Breadcrumb.Ellipsis class="h-4 w-4" />
+							<EllipsisIcon size={20} />
 						</DropdownMenu.Trigger>
 						<DropdownMenu.Content align="start">
 							{#each items.slice(1, -2) as item}
@@ -42,7 +44,7 @@
 				{:else}
 					<Drawer.Root bind:open>
 						<Drawer.Trigger aria-label="Toggle Menu">
-							<Breadcrumb.Ellipsis class="h-4 w-4" />
+							<EllipsisIcon size={20} />
 						</Drawer.Trigger>
 						<Drawer.Content>
 							<Drawer.Header class="text-left">
@@ -64,23 +66,23 @@
 						</Drawer.Content>
 					</Drawer.Root>
 				{/if}
-			</Breadcrumb.Item>
-			<Breadcrumb.Separator />
+			</li>
 		{/if}
-
 		{#each items.slice(-ITEMS_TO_DISPLAY + 1) as item}
-			<Breadcrumb.Item>
-				{#if item.href}
-					<Breadcrumb.Link href={item.href} class="max-w-20 truncate md:max-w-none">
-						{item.label}
-					</Breadcrumb.Link>
-					<Breadcrumb.Separator />
-				{:else}
-					<Breadcrumb.Page class="max-w-20 truncate md:max-w-none">
-						{item.label}
-					</Breadcrumb.Page>
-				{/if}
-			</Breadcrumb.Item>
+			<li>
+				<div class="flex items-center gap-x-1.5">
+					<ChevronRightIcon size={20} class="shrink-0 text-gray-300" />
+					{#if item.href}
+						<a href={item.href} class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+							>{item.label}</a
+						>
+					{:else}
+						<span class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+							>{item.label}</span
+						>
+					{/if}
+				</div>
+			</li>
 		{/each}
-	</Breadcrumb.List>
-</Breadcrumb.Root>
+	</ol>
+</nav>

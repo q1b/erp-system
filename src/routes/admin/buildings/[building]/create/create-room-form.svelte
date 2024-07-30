@@ -11,14 +11,14 @@
 		data,
 		onresult = () => {},
 		class: className = '',
-		buildingId,
+		buildingId
 	}: {
 		data: CreateRoomFormType;
 		onresult?: () => void;
-		class?:string,
-		buildingId: string
+		class?: string;
+		buildingId: string;
 	} = $props();
-	
+
 	let toastId = $state<number | string>(0);
 	const form = superForm(data, {
 		validators: zodClient(createRoomSchema),
@@ -30,7 +30,7 @@
 		onSubmit: () => {
 			toastId = toast.loading('Creating Room ...');
 		},
-		delayMs: 100,
+		delayMs: 100
 	});
 	const { form: formData, enhance, delayed } = form;
 </script>
@@ -50,6 +50,6 @@
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
-	<input type="hidden" name="buildingId" value={buildingId}>
+	<input type="hidden" name="buildingId" value={buildingId} />
 	<Form.Button class="w-full mt-2" disabled={$delayed}>Add New Room</Form.Button>
 </form>

@@ -1,7 +1,7 @@
-import { z } from "zod";
- 
+import { z } from 'zod';
+
 export const createTimetableSchema = z.object({
-  name: z.string()
+	name: z.string()
 });
- 
+
 export type CreateTimetableSchema = typeof createTimetableSchema;

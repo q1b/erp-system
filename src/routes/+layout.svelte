@@ -1,10 +1,10 @@
 <script>
-	import "../app.css"
-	
+	import '../app.css';
+
 	import { onMount } from 'svelte';
 	import { pwaInfo } from 'virtual:pwa-info';
 
-	import { Toaster } from "$lib/components/ui/sonner";
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	onMount(async () => {
 		if (pwaInfo) {
@@ -26,8 +26,8 @@
 </script>
 
 <svelte:head>
-	<title> Sri Sri University - ERP Portal </title>
-	<meta name="description" content="ERP Portal for students, staff of Sri Sri University">
+	<title>Sri Sri University - ERP Portal</title>
+	<meta name="description" content="ERP Portal for students, staff of Sri Sri University" />
 	{@html webManifestLink}
 </svelte:head>
 

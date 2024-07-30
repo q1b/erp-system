@@ -16,10 +16,14 @@
 		<Card.Title>Users</Card.Title>
 		<Card.Description>Manage your users list</Card.Description>
 	</Card.Header>
-	<Button onclick={() => {open = true}}>New User</Button>
+	<Button
+		onclick={() => {
+			open = true;
+		}}>New User</Button
+	>
 </div>
 <Card.Content>
-<Table.Root>
+	<Table.Root>
 		<Table.Header>
 			<Table.Row>
 				<Table.Head>Name</Table.Head>
@@ -47,12 +51,22 @@
 								<DropdownMenu.Trigger>
 									<MoreVerticalIcon size="20" />
 								</DropdownMenu.Trigger>
-								<DropdownMenu.Content sideOffset={2} >
-									<Button type="submit" variant="ghost" size="sm" class="w-full flex justify-between">
+								<DropdownMenu.Content sideOffset={2}>
+									<Button
+										type="submit"
+										variant="ghost"
+										size="sm"
+										class="w-full flex justify-between"
+									>
 										More Info
 									</Button>
 									<form method="POST" action="/admin/courses/{user.id}?/delete" use:enhance>
-										<Button type="submit" variant="ghost" size="sm" class="w-full flex justify-between">
+										<Button
+											type="submit"
+											variant="ghost"
+											size="sm"
+											class="w-full flex justify-between"
+										>
 											Delete
 										</Button>
 									</form>

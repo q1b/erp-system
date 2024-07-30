@@ -9,6 +9,6 @@
 </strong>
 
 <style>
-    strong {
-    }
+	strong {
+	}
 </style>

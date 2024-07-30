@@ -18,7 +18,7 @@
 		data: CreateSpecializationFormType;
 		onresult?: () => void;
 		class?: string;
-		programs: Omit<ProgramTableType,'description'>[];
+		programs: Omit<ProgramTableType, 'description'>[];
 	} = $props();
 
 	let toastId = $state<number | string>(0);
@@ -41,17 +41,12 @@
 			? {
 					label: $formData.name,
 					value: $formData.programId
-			  }
+				}
 			: undefined
 	);
 </script>
 
-<form
-	class={className}
-	method="POST"
-	use:enhance
-	action="/admin/specialization/create"
->
+<form class={className} method="POST" use:enhance action="/admin/specialization/create">
 	<Form.Field {form} name="name">
 		<Form.Control let:attrs>
 			<Form.Label>Name</Form.Label>
@@ -88,5 +83,7 @@
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Button type="submit" class="w-full mt-2" disabled={$delayed}>Add New Specialization</Form.Button>
+	<Form.Button type="submit" class="w-full mt-2" disabled={$delayed}
+		>Add New Specialization</Form.Button
+	>
 </form>

@@ -8,7 +8,7 @@ data-table-actions.svelte will contain the actions menu for each row.
 data-table-checkbox.svelte will contain the checkbox for each row.
 +page.svelte is where we'll render and access <DataTable /> component. -->
 <div class="container mx-auto py-10">
-<section class="p-10">
-	<DataTable />
-</section>
+	<section class="p-10">
+		<DataTable />
+	</section>
 </div>

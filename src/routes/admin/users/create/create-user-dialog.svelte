@@ -1,14 +1,17 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
-    import * as Dialog from '$lib/components/ui/dialog';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { type CreateUserFormType } from '.';
 	import CreateUserForm from './create-user-form.svelte';
 
-    let { data, open = $bindable(), }: {
-        open?: boolean;
-        data: CreateUserFormType;
-    } = $props();
+	let {
+		data,
+		open = $bindable()
+	}: {
+		open?: boolean;
+		data: CreateUserFormType;
+	} = $props();
 
 	let isDesktop = $state(true);
 	$effect(() => {
@@ -23,7 +26,7 @@
 				<Dialog.Title>New User</Dialog.Title>
 				<Dialog.Description>Add a new user</Dialog.Description>
 			</Dialog.Header>
-			<CreateUserForm onresult={() => (open = false)} data={data} />
+			<CreateUserForm onresult={() => (open = false)} {data} />
 		</Dialog.Content>
 	</Dialog.Root>
 {:else}
@@ -31,11 +34,9 @@
 		<Drawer.Content>
 			<Drawer.Header class="text-left">
 				<Drawer.Title>New User</Drawer.Title>
-				<Drawer.Description>
-					Add a new user
-				</Drawer.Description>
+				<Drawer.Description>Add a new user</Drawer.Description>
 			</Drawer.Header>
-			<CreateUserForm class="px-4" onresult={() => (open = false)} data={data} />
+			<CreateUserForm class="px-4" onresult={() => (open = false)} {data} />
 			<Drawer.Footer class="pt-2">
 				<Drawer.Close asChild let:builder>
 					<Button variant="outline" builders={[builder]}>Cancel</Button>

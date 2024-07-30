@@ -13,4 +13,4 @@ export const button = `inline-flex items-center gap-x-2 w-max rounded-md px-2.5 
     dark:focus-visible:ring-offset-slate-800 dark:focus-visible:ring-slate-600
     dark:active:bg-slate-600/80 dark:active:focus-visible:bg-slate-600/80 dark:active:border-slate-600 dark:active:text-white
     dark:disabled:bg-slate-700 dark:disabled:border-slate-600 dark:disabled:text-slate-500
-    [-webkit-tap-highlight-color:transparent;] select-none outline-none`
+    [-webkit-tap-highlight-color:transparent;] select-none outline-none`;

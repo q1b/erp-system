@@ -2,9 +2,7 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import * as Table from '$lib/components/ui/table';
-	import {
-		MoreVerticalIcon
-	} from 'lucide-svelte';
+	import { MoreVerticalIcon } from 'lucide-svelte';
 	import CreateProgramDialog from './create/create-program-dialog.svelte';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { enhance } from '$app/forms';
@@ -53,12 +51,22 @@
 								<DropdownMenu.Trigger>
 									<MoreVerticalIcon size="20" />
 								</DropdownMenu.Trigger>
-								<DropdownMenu.Content sideOffset={2} >
-									<Button type="submit" variant="ghost" size="sm" class="w-full flex justify-between">
+								<DropdownMenu.Content sideOffset={2}>
+									<Button
+										type="submit"
+										variant="ghost"
+										size="sm"
+										class="w-full flex justify-between"
+									>
 										More Info
 									</Button>
 									<form method="POST" action="/admin/programs/{program.id}?/delete" use:enhance>
-										<Button type="submit" variant="ghost" size="sm" class="w-full flex justify-between">
+										<Button
+											type="submit"
+											variant="ghost"
+											size="sm"
+											class="w-full flex justify-between"
+										>
 											Delete
 										</Button>
 									</form>

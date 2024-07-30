@@ -21,12 +21,12 @@
 		{ name: 'Programs', href: '/admin/programs', icon: BlocksIcon },
 		{ name: 'Specializations', href: '/admin/specialization', icon: SparkleIcon },
 		{ name: 'Courses', href: '/admin/courses', icon: Layers3Icon },
-		{ name: 'Time Tables', href: '/admin/timetable', icon: Table2Icon },
+		{ name: 'Time Tables', href: '/admin/timetable', icon: Table2Icon }
 	];
 
 	let { children } = $props();
 
-	let open = $state(false)
+	let open = $state(false);
 </script>
 
 <div class="min-h-screen w-full">
@@ -52,7 +52,7 @@
 	<div
 		class="sticky top-0 flex items-center gap-x-6 px-4 py-4 bg-background shadow-sm sm:px-6 lg:hidden"
 	>
-		<Sheet.Root bind:open={open}>
+		<Sheet.Root bind:open>
 			<Sheet.Trigger asChild let:builder>
 				<Button builders={[builder]} size="icon" variant="outline" class="p-2.5 -m-2.5">
 					<SidebarOpenIcon class="h-5 w-5" />
@@ -65,7 +65,13 @@
 					<div class="flex flex-col gap-y-2">
 						{#each navItems as navItem}
 							{@const Icon = navItem.icon}
-							<a onclick={() => {open = false}} href={navItem.href} class="w-full flex gap-x-2 items-center hover:bg-gray-100 p-1.5">
+							<a
+								onclick={() => {
+									open = false;
+								}}
+								href={navItem.href}
+								class="w-full flex gap-x-2 items-center hover:bg-gray-100 p-1.5"
+							>
 								<Icon size={20} fill="#000000" />
 								<span class="truncate text-base/6 font-medium text-gray-600">{navItem.name}</span>
 							</a>

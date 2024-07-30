@@ -4,11 +4,11 @@
 	let { children, ...others }: { children: Snippet } = $props();
 </script>
 
-<a {...others} >
+<a {...others}>
 	{@render children()}
 </a>
 
 <style>
-    a {
-    }
+	a {
+	}
 </style>

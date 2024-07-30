@@ -3,7 +3,7 @@
 Features
 
 - Lucia Auth
-    - JWT Implementation
+  - JWT Implementation
 - Turso Sqlite
 - Drizzle
 - Shadcn UI ( Svelte )

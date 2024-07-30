@@ -1,14 +1,13 @@
-import { db } from "$lib/server/db";
-import type { Actions, PageServerLoad } from "./$types";
+import { db } from '$lib/server/db';
+import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-    return {
-        programs: db.query.programTable.findMany(),
-        // programForm: await getCreateProgramForm(),
-    }
+	return {
+		programs: db.query.programTable.findMany()
+		// programForm: await getCreateProgramForm(),
+	};
 };
 
 export const actions: Actions = {
-    default: async () => {
-    }
+	default: async () => {}
 };

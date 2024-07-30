@@ -14,9 +14,9 @@
 	}: {
 		data: CreateTimetableFormType;
 		onresult?: () => void;
-		class?:string
+		class?: string;
 	} = $props();
-	
+
 	let toastId = $state<number | string>(0);
 	const form = superForm(data, {
 		validators: zodClient(createTimetableSchema),
@@ -28,7 +28,7 @@
 		onSubmit: () => {
 			toastId = toast.loading('Creating Timetable ...');
 		},
-		delayMs: 100,
+		delayMs: 100
 	});
 	const { form: formData, enhance, delayed } = form;
 </script>

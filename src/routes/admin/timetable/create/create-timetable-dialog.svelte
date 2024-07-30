@@ -1,14 +1,17 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
-    import * as Dialog from '$lib/components/ui/dialog';
+	import * as Dialog from '$lib/components/ui/dialog';
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { type CreateTimetableFormType } from './index.js';
 	import CreateTimetableForm from './create-timetable-form.svelte';
 
-    let { data, open = $bindable(), }: {
-        open?: boolean;
-        data: CreateTimetableFormType;
-    } = $props();
+	let {
+		data,
+		open = $bindable()
+	}: {
+		open?: boolean;
+		data: CreateTimetableFormType;
+	} = $props();
 
 	let isDesktop = $state(true);
 	$effect(() => {
@@ -23,7 +26,7 @@
 				<Dialog.Title>Time Table</Dialog.Title>
 				<Dialog.Description>Time Table Description</Dialog.Description>
 			</Dialog.Header>
-			<CreateTimetableForm onresult={() => (open = false)} data={data} />
+			<CreateTimetableForm onresult={() => (open = false)} {data} />
 		</Dialog.Content>
 	</Dialog.Root>
 {:else}
@@ -31,11 +34,9 @@
 		<Drawer.Content>
 			<Drawer.Header class="text-left">
 				<Drawer.Title>Time Table</Drawer.Title>
-				<Drawer.Description>
-					Time Table Description
-				</Drawer.Description>
+				<Drawer.Description>Time Table Description</Drawer.Description>
 			</Drawer.Header>
-			<CreateTimetableForm class="px-4" onresult={() => (open = false)} data={data} />
+			<CreateTimetableForm class="px-4" onresult={() => (open = false)} {data} />
 			<Drawer.Footer class="pt-2">
 				<Drawer.Close asChild let:builder>
 					<Button variant="outline" builders={[builder]}>Cancel</Button>

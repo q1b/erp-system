@@ -1,18 +1,20 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Breadcrumb from '$lib/components/breadcrumb.svelte';
-import * as Card from '$lib/components/ui/card';
+	import * as Card from '$lib/components/ui/card';
 	import groupBy from 'just-group-by';
 
 	let { data } = $props();
 </script>
 
 <div class="min-h-screen w-full max-w-7xl py-4 px-4 xl:px-0">
-	<Breadcrumb items={[
-		{ href: '/', label: 'Home' },
-		{ href: '/programs', label: 'Programs'},
-		{ label: $page.params.program }
-	]} />
+	<Breadcrumb
+		items={[
+			{ href: '/', label: 'Home' },
+			{ href: '/programs', label: 'Programs' },
+			{ label: $page.params.program }
+		]}
+	/>
 	<div class="mt-6 mb-12">
 		<h2 class="text-3xl font-semibold text-gray-900 mb-6">
 			{#await data.program}

@@ -9,6 +9,6 @@
 </code>
 
 <style>
-    code {
-    }
+	code {
+	}
 </style>
