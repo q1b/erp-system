@@ -73,6 +73,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-foreground selection:text-background;
+    @apply bg-background flex flex-col items-center text-foreground selection:bg-foreground selection:text-background;
   }
 }
