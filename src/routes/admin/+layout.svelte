@@ -12,7 +12,10 @@
 		BuildingIcon,
 		BlocksIcon,
 		SparkleIcon,
-		TagsIcon
+		TagsIcon,
+
+		GroupIcon
+
 	} from 'lucide-svelte';
 
 	const navItems = [
@@ -22,6 +25,7 @@
 		// { name: 'Professors', href: '/admin/professors', icon: UserSquareIcon },
 		{ name: 'Programs', href: '/admin/programs', icon: BlocksIcon },
 		{ name: 'Specializations', href: '/admin/specialization', icon: SparkleIcon },
+		{ name: 'Batches', href: '/admin/batch', icon: GroupIcon },
 		{ name: 'Courses', href: '/admin/courses', icon: Layers3Icon },
 		{ name: 'Time Tables', href: '/admin/timetable', icon: Table2Icon },
 		{ name: 'Buildings', href: '/admin/buildings', icon: BuildingIcon },
