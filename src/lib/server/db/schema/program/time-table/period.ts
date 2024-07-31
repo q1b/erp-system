@@ -4,7 +4,6 @@ import { relations } from 'drizzle-orm';
 import { timetableTable } from '.';
 import { lectureToBatchTabel } from '../lecture';
 
-// B.tech B.sc
 export const periodTable = table('period', {
 	id,
 	day: text('day', {
@@ -14,11 +13,11 @@ export const periodTable = table('period', {
 	duration: integer('duration'),
 	timetableId: text('timetable_id').references(() => timetableTable.id, {
 		onDelete: 'cascade',
-		onUpdate: 'cascade'
+		onUpdate: 'no action'
 	}),
 	lectureToBatchTabel: text('lecture_to_batch_id').references(() => lectureToBatchTabel.id, {
 		onDelete: 'cascade',
-		onUpdate: 'cascade'
+		onUpdate: 'no action'
 	})
 });
 

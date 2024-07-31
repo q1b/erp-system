@@ -1,34 +1,13 @@
 {
-	"version": "7",
-	"dialect": "sqlite",
-	"entries": [
-		{
-			"idx": 0,
-			"version": "6",
-			"when": 1722127537050,
-			"tag": "0000_needy_dragon_lord",
-			"breakpoints": true
-		},
-		{
-			"idx": 1,
-			"version": "6",
-			"when": 1722127683150,
-			"tag": "0001_amused_blockbuster",
-			"breakpoints": true
-		},
-		{
-			"idx": 2,
-			"version": "6",
-			"when": 1722187144429,
-			"tag": "0002_funny_phantom_reporter",
-			"breakpoints": true
-		},
-		{
-			"idx": 3,
-			"version": "6",
-			"when": 1722266654254,
-			"tag": "0003_optimal_zzzax",
-			"breakpoints": true
-		}
-	]
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1722424758721,
+      "tag": "0000_mixed_wiccan",
+      "breakpoints": true
+    }
+  ]
 }

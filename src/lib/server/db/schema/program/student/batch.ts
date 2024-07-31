@@ -5,20 +5,21 @@ import { programTable, specializationTable } from '..';
 
 import { studentTable } from '.';
 
-// B.tech B.sc
+// When a batch is deleted all the corresponding sections are deleted as well
+// When a batch is deleted all the corresponding students are deleted as well
+// when a batch is deleted all the corresponding relation to lectures are deleted as well
 export const batchTable = table('batch', {
 	id,
-	section: text('section'),
 	year: integer('year', { mode: 'number' }).notNull(),
-	programId: text('program_id').references(() => programTable.id),
-	specializationId: text('specialization_id').references(() => specializationTable.id),
+	programId: text('program_id').references(() => programTable.id, { onDelete: 'set null', onUpdate: 'no action' }),
+	specializationId: text('specialization_id').references(() => specializationTable.id, { onDelete: 'set null', onUpdate: 'no action' }),
 	createdAt
 });
 
 export const batchSectionTable = table('batch_section', {
 	id,
 	name: text('name').notNull(), // A, B
-	batchId: text('batch_id').references(() => batchTable.id)
+	batchId: text('batch_id').references(() => batchTable.id, { onDelete: 'cascade', onUpdate: 'no action' })
 });
 
 export const batchSectionRelation = relations(batchSectionTable, ({ one, many }) => ({

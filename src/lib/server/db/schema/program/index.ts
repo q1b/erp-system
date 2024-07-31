@@ -3,7 +3,8 @@ import { id, table } from '../../helpers';
 import { relations } from 'drizzle-orm';
 import { batchTable } from './student/batch';
 
-// B.tech B.sc
+// When a program is deleted all the corresponding specializations are deleted as well
+// When a program is deleted all the corresponding batches are not deleted yet, set to null
 export const programTable = table('program', {
 	id,
 	name: text('name').notNull(),
@@ -22,7 +23,7 @@ export const specializationTable = table('specialization', {
 	shortName: text('short_name').notNull(),
 	programId: text('program_id').references(() => programTable.id, {
 		onDelete: 'cascade',
-		onUpdate: 'cascade'
+		onUpdate: 'no action'
 	})
 });
 

@@ -6,22 +6,26 @@ import { userTable } from '../../identity/user';
 
 export const studentTable = table('student', {
 	id,
+	userId: text('user_id').references(() => userTable.id, { onDelete: 'cascade', onUpdate: 'no action' }),
 	batchId: text('batch_id').references(() => batchTable.id, {
-		onUpdate: 'cascade',
+		onUpdate: 'no action',
 		onDelete: 'cascade'
 	}),
 	sectionId: text('section_id').references(() => batchSectionTable.id, {
-		onUpdate: 'cascade',
-		onDelete: 'cascade'
+		onUpdate: 'no action',
+		onDelete: 'set null'
 	})
-});
+})
 
 export const studentRelation = relations(studentTable, ({ one }) => ({
 	batch: one(batchTable, {
 		fields: [studentTable.batchId],
 		references: [batchTable.id]
 	}),
-	user: one(userTable),
+	user: one(userTable, {
+		fields: [studentTable.userId],
+		references: [userTable.id]
+	}),
 	section: one(batchSectionTable, {
 		fields: [studentTable.sectionId],
 		references: [batchSectionTable.id]
