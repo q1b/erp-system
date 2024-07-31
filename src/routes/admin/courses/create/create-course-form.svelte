@@ -32,7 +32,7 @@
 	const { form: formData, enhance, delayed } = form;
 </script>
 
-<form class={className} method="POST" use:enhance action="/admin/courses/create?/default">
+<form class={className} method="POST" use:enhance action="/admin/courses/create">
 	<Form.Field {form} name="name">
 		<Form.Control let:attrs>
 			<Form.Label>Name</Form.Label>
