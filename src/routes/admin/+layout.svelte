@@ -11,17 +11,20 @@
 		Table2Icon,
 		BuildingIcon,
 		BlocksIcon,
-		SparkleIcon
+		SparkleIcon,
+		TagsIcon
 	} from 'lucide-svelte';
 
 	const navItems = [
 		{ name: 'Home', href: '/admin', icon: HomeIcon },
-		{ name: 'Buildings', href: '/admin/buildings', icon: BuildingIcon },
 		{ name: 'Users', href: '/admin/users', icon: UsersRoundIcon },
+		{ name: 'Roles', href: '/admin/roles', icon: TagsIcon },
+		// { name: 'Professors', href: '/admin/professors', icon: UserSquareIcon },
 		{ name: 'Programs', href: '/admin/programs', icon: BlocksIcon },
 		{ name: 'Specializations', href: '/admin/specialization', icon: SparkleIcon },
 		{ name: 'Courses', href: '/admin/courses', icon: Layers3Icon },
-		{ name: 'Time Tables', href: '/admin/timetable', icon: Table2Icon }
+		{ name: 'Time Tables', href: '/admin/timetable', icon: Table2Icon },
+		{ name: 'Buildings', href: '/admin/buildings', icon: BuildingIcon },
 	];
 
 	let { children } = $props();
