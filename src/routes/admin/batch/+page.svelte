@@ -2,10 +2,10 @@
 	import * as AlertDialog from "$lib/components/ui/alert-dialog";
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
-	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Table from '$lib/components/ui/table';
 	import { MoreVerticalIcon, Trash2Icon } from 'lucide-svelte';
-	import CreateUserDialog from './create/create-user-dialog.svelte';
+	import CreateBatchDialog from './create/create-batch-dialog.svelte';
+	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import { enhance } from '$app/forms';
 
 	let { data } = $props();
@@ -14,39 +14,39 @@
 
 <div class="flex justify-between items-center p-6">
 	<Card.Header class="p-0">
-		<Card.Title>Users</Card.Title>
-		<Card.Description>Manage your users list</Card.Description>
+		<Card.Title>Batch</Card.Title>
+		<Card.Description>Manage your batch list</Card.Description>
 	</Card.Header>
 	<Button
 		onclick={() => {
 			open = true;
-		}}>New User</Button
+		}}>Add Batch</Button
 	>
 </div>
 <Card.Content>
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
-				<Table.Head>Name</Table.Head>
-				<Table.Head>Email</Table.Head>
-				<Table.Head>Role</Table.Head>
+				<Table.Head>Year</Table.Head>
+				<Table.Head>Program ID</Table.Head>
+				<Table.Head>Specialization ID</Table.Head>
 				<Table.Head></Table.Head>
 			</Table.Row>
 		</Table.Header>
 		<Table.Body>
-			{#await data.users}
+			{#await data.batchList}
 				<Table.Row>
 					<Table.Cell>Loading ...</Table.Cell>
 					<Table.Cell>Loading ...</Table.Cell>
 					<Table.Cell>Loading ...</Table.Cell>
 					<Table.Cell>Loading ...</Table.Cell>
 				</Table.Row>
-			{:then users}
-				{#each users as user}
+			{:then batchList}
+				{#each batchList as batch}
 					<Table.Row>
-						<Table.Cell>{user.name}</Table.Cell>
-						<Table.Cell>{user.email}</Table.Cell>
-						<Table.Cell>{user.role}</Table.Cell>
+						<Table.Cell>{batch.year}</Table.Cell>
+						<Table.Cell>{batch.programId}</Table.Cell>
+						<Table.Cell>{batch.specializationId}</Table.Cell>
 						<Table.Cell>
 							<DropdownMenu.Root>
 								<DropdownMenu.Trigger>
@@ -71,13 +71,13 @@
 										  <AlertDialog.Header>
 											<AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
 											<AlertDialog.Description>
-											  This action cannot be undone. This will permanently delete your user profile
-											  and remove your data from our servers.
+											  This action cannot be undone. 
+											  This will permanently delete all the students within this batch will get deleted alongside the batch sections, and corresponding lectures mapped to the batch.
 											</AlertDialog.Description>
 										  </AlertDialog.Header>
 										  <AlertDialog.Footer>
 											<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-											<form method="POST" action="/admin/users/{user.id}?/delete" use:enhance>
+											<form method="POST" action="/admin/batch/{batch.id}?/delete" use:enhance>
 												<Button
 													type="submit"
 													variant="default"
@@ -99,6 +99,13 @@
 	</Table.Root>
 </Card.Content>
 
-{#await data.roleList then roleList}
-	<CreateUserDialog roleList={roleList} bind:open data={data.createUserForm} />	
+{#await Promise.allSettled([data.programList, data.specializationList]) then promises}
+	{#if promises[0].status === 'fulfilled' && promises[1].status === 'fulfilled'}
+		<CreateBatchDialog
+			bind:open
+			programList={promises[0].value}
+			specializationList={promises[1].value}
+			data={data.batchForm}
+		/>
+	{/if}
 {/await}
