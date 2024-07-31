@@ -22,7 +22,6 @@ export const actions: Actions = {
 		await validateUser(event);
 		const form = await getCreateSpecializationForm(event);
 		if (!form.valid) return fail(400, { form });
-		console.log(form.data);
 		await db.insert(specializationTable).values({
 			name: form.data.name,
 			shortName: form.data.shortName,

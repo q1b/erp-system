@@ -5,7 +5,8 @@ import { getCreateUserForm } from './create';
 export const load: PageServerLoad = async () => {
 	return {
 		users: db.query.userTable.findMany(),
-		createUserForm: await getCreateUserForm()
+		roleList: db.query.roleTable.findMany(),
+		createUserForm: await getCreateUserForm(),
 	};
 };
 

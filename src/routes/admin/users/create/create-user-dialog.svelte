@@ -7,10 +7,12 @@
 
 	let {
 		data,
-		open = $bindable()
+		open = $bindable(),
+		roleList
 	}: {
 		open?: boolean;
 		data: CreateUserFormType;
+		roleList: {id:string;label:string}[]
 	} = $props();
 
 	let isDesktop = $state(true);
@@ -26,7 +28,7 @@
 				<Dialog.Title>New User</Dialog.Title>
 				<Dialog.Description>Add a new user</Dialog.Description>
 			</Dialog.Header>
-			<CreateUserForm onresult={() => (open = false)} {data} />
+			<CreateUserForm roleList={roleList} onresult={() => (open = false)} {data} />
 		</Dialog.Content>
 	</Dialog.Root>
 {:else}
@@ -36,7 +38,7 @@
 				<Drawer.Title>New User</Drawer.Title>
 				<Drawer.Description>Add a new user</Drawer.Description>
 			</Drawer.Header>
-			<CreateUserForm class="px-4" onresult={() => (open = false)} {data} />
+			<CreateUserForm roleList={roleList} class="px-4" onresult={() => (open = false)} {data} />
 			<Drawer.Footer class="pt-2">
 				<Drawer.Close asChild let:builder>
 					<Button variant="outline" builders={[builder]}>Cancel</Button>

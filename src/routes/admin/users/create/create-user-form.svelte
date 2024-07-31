@@ -11,11 +11,13 @@
 	const {
 		data,
 		onresult = () => {},
-		class: className = ''
+		class: className = '',
+		roleList
 	}: {
 		data: CreateUserFormType;
 		onresult?: () => void;
 		class?: string;
+		roleList: {label:string;id:string}[]
 	} = $props();
 
 	let toastId = $state<number | string>(0);
@@ -23,11 +25,11 @@
 		validators: zodClient(createUserSchema),
 		onResult: () => {
 			toast.dismiss(toastId);
-			toast.message('Your course is being created');
+			toast.message('Your User is being created');
 			onresult();
 		},
 		onSubmit: () => {
-			toastId = toast.loading('Creating Course ...');
+			toastId = toast.loading('Creating User ...');
 		}
 	});
 
@@ -43,7 +45,7 @@
 	);
 </script>
 
-<form class={className} method="POST" use:enhance action="/admin/courses/create/?default">
+<form class={className} method="POST" use:enhance action="/admin/users/create">
 	<Form.Field {form} name="name">
 		<Form.Control let:attrs>
 			<Form.Label>Name</Form.Label>
@@ -71,12 +73,12 @@
 					<Select.Value placeholder="Select a Role" />
 				</Select.Trigger>
 				<Select.Content>
-					{#each ['faculty', 'student', 'admin', 'user'] as role}
-						<Select.Item value={role} label={role} />
+					{#each roleList as role}
+						<Select.Item value={role.id} label={role.label} />
 					{/each}
 				</Select.Content>
 			</Select.Root>
-			<input hidden bind:value={$formData.email} name={attrs.name} />
+			<input hidden value={selectedRole?.label} name={attrs.name} />
 		</Form.Control>
 		<Form.Description />
 		<Form.FieldErrors />

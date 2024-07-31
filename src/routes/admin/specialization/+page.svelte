@@ -26,6 +26,7 @@
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
+				<Table.Head>Id</Table.Head>
 				<Table.Head>Name</Table.Head>
 				<Table.Head>ShortName</Table.Head>
 				<Table.Head>Program</Table.Head>
@@ -39,10 +40,12 @@
 					<Table.Cell>Loading ...</Table.Cell>
 					<Table.Cell>Loading ...</Table.Cell>
 					<Table.Cell>Loading ...</Table.Cell>
+					<Table.Cell>Loading ...</Table.Cell>
 				</Table.Row>
 			{:then specializationList}
 				{#each specializationList as specialization}
 					<Table.Row>
+						<Table.Cell>{specialization.id}</Table.Cell>
 						<Table.Cell>{specialization.name}</Table.Cell>
 						<Table.Cell>{specialization.shortName}</Table.Cell>
 						<Table.Cell>{specialization.program.name}</Table.Cell>

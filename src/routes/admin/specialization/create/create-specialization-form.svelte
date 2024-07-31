@@ -39,7 +39,7 @@
 	let selectedProgramId = $derived(
 		$formData.programId
 			? {
-					label: $formData.name,
+					label: $formData.programId,
 					value: $formData.programId
 				}
 			: undefined
@@ -83,7 +83,5 @@
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Button type="submit" class="w-full mt-2" disabled={$delayed}
-		>Add New Specialization</Form.Button
-	>
+	<Form.Button type="submit" class="w-full mt-2" disabled={$delayed}>Add New Specialization</Form.Button>
 </form>

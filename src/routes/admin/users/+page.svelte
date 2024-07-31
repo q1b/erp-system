@@ -1,9 +1,10 @@
 <script>
+	import * as AlertDialog from "$lib/components/ui/alert-dialog";
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Table from '$lib/components/ui/table';
-	import { MoreVerticalIcon } from 'lucide-svelte';
+	import { MoreVerticalIcon, Trash2Icon } from 'lucide-svelte';
 	import CreateUserDialog from './create/create-user-dialog.svelte';
 	import { enhance } from '$app/forms';
 
@@ -60,16 +61,34 @@
 									>
 										More Info
 									</Button>
-									<form method="POST" action="/admin/courses/{user.id}?/delete" use:enhance>
-										<Button
-											type="submit"
-											variant="ghost"
-											size="sm"
-											class="w-full flex justify-between"
-										>
-											Delete
-										</Button>
-									</form>
+									<AlertDialog.Root>
+										<AlertDialog.Trigger asChild let:builder>
+										  <Button class="gap-x-4 w-full" builders={[builder]} variant="destructive">
+											<Trash2Icon size={20}/> Delete 
+											</Button>
+										</AlertDialog.Trigger>
+										<AlertDialog.Content>
+										  <AlertDialog.Header>
+											<AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+											<AlertDialog.Description>
+											  This action cannot be undone. This will permanently delete your account
+											  and remove your data from our servers.
+											</AlertDialog.Description>
+										  </AlertDialog.Header>
+										  <AlertDialog.Footer>
+											<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+											<form method="POST" action="/admin/users/{user.id}?/delete" use:enhance>
+												<Button
+													type="submit"
+													variant="default"
+													class="w-full flex justify-between"
+												>
+													Confirm
+												</Button>
+											</form>
+										  </AlertDialog.Footer>
+										</AlertDialog.Content>
+									  </AlertDialog.Root>
 								</DropdownMenu.Content>
 							</DropdownMenu.Root>
 						</Table.Cell>
@@ -80,4 +99,6 @@
 	</Table.Root>
 </Card.Content>
 
-<CreateUserDialog bind:open data={data.createUserForm} />
+{#await data.roleList then roleList}
+	<CreateUserDialog roleList={roleList} bind:open data={data.createUserForm} />	
+{/await}
