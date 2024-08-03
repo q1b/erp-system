@@ -7,7 +7,7 @@ export const resourceTable = table('resource', {
 	id,
 	name: text('name').notNull(),
 	link: text('link').notNull(),
-	courseId: text('course_id').references(() => courseTable.id)
+	courseId: text('course_id').references(() => courseTable.id, { onDelete: 'cascade' })
 });
 
 export const resourcesRelation = relations(resourceTable, ({ one }) => ({

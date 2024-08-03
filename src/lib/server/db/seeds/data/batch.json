@@ -1,0 +1,17 @@
+[
+    {
+        "id": "2021-btcseai",
+        "year": "2021",
+        "program_code": "btcseai"
+    },
+    {
+        "id": "2021-btcseds",
+        "year": "2021",
+        "program_code": "btcseds"
+    },
+    {
+        "id": "2021-btcsecs",
+        "year": "2021",
+        "program_code": "btcsecs"
+    }
+]

@@ -2,7 +2,7 @@ import { db } from '$lib/server/db';
 import { eq } from 'drizzle-orm';
 import type { Actions, PageServerLoad } from './$types';
 import { getCreateRoomForm } from './create';
-import { buildingTable, roomTable } from '$lib/server/db/schema';
+import { buildingTable, roomTable } from '$lib/server/db/old_schema';
 
 export const load: PageServerLoad = async (event) => {
 	return {

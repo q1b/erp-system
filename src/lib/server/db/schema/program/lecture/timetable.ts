@@ -6,9 +6,9 @@ import { periodTable } from './period';
 // B.tech B.sc
 export const timetableTable = table('timetable', {
 	id,
-	name: text('name').notNull()
+	name: text('name').notNull(),
 });
 
 export const timetableRelation = relations(timetableTable, ({ many }) => ({
-	periods: many(periodTable),
+	periods: many(periodTable)
 }));

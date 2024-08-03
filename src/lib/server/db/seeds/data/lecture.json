@@ -1,0 +1,92 @@
+[
+    {
+        "course-name": "Compiler design",
+        "professor-name": "Aradhana Kar",
+        "sem-id": ["7-sem-2021-btcseai","7-sem-2021-btcseds","7-sem-2021-btcsecs"],
+        "location": "405"
+    },
+    {
+        "course-name": "Deep learning",
+        "professor-name": "Chinmaya Kumar Nayak",
+        "sem-id": ["7-sem-2021-btcseai"],
+        "location": "405"
+    },
+    {
+        "course-name": "Pattern recognition",
+        "professor-name": "Aradhana Kar",
+        "sem-id": ["7-sem-2021-btcseai"],
+        "location": "405"
+    },
+    {
+        "course-name": "Computational linguistics & NLP",
+        "professor-name": "Deepak Sahoo",
+        "sem-id": ["7-sem-2021-btcseai"],
+        "location": "405"
+    },
+    {
+        "course-name": "Application of ML in industries",
+        "professor-name": "Anil Kumar Meher",
+        "sem-id": ["7-sem-2021-btcseai"],
+        "location": "405"
+    },
+    {
+        "course-name": "Descriptive analytics",
+        "professor-name": "Saumendra Kumar Mohapatra",
+        "sem-id": ["7-sem-2021-btcseds"],
+        "location": "409"
+    },
+    {
+        "course-name": "Social and web analytics",
+        "professor-name": "Deepak Sahoo",
+        "sem-id": ["7-sem-2021-btcseds"],
+        "location": "409"
+    },
+    {
+        "course-name": "Big Data Analytics",
+        "professor-name": "Pradipta Kumar Mishra",
+        "sem-id": ["7-sem-2021-btcseds"],
+        "location": "409"
+    },
+    {
+        "course-name": "BA for Industries and functional area",
+        "professor-name": "Saumendra Kumar Mohapatra",
+        "sem-id": ["7-sem-2021-btcseds"],
+        "location": "409"
+    },
+    {
+        "course-name": "Security Analytics",
+        "professor-name": "Chinmaya Kumar Nayak",
+        "sem-id": ["7-sem-2021-btcsecs"],
+        "location": "000"
+    },
+    {
+        "course-name": "Applied cloud computing",
+        "professor-name": "Pradipta Kumar Mishra",
+        "sem-id": ["7-sem-2021-btcsecs"],
+        "location": "000"
+    },
+    {
+        "course-name": "Current trends in technology & its security & forensics aspects",
+        "professor-name": "Gopikrishna Panda",
+        "sem-id": ["7-sem-2021-btcsecs"],
+        "location": "000"
+    },
+    {
+        "course-name": "Red Teaming",
+        "professor-name": "Nilamadhab Dash",
+        "sem-id": ["7-sem-2021-btcsecs"],
+        "location": "000"
+    },
+    {
+        "course-name": "PrePlacement training",
+        "professor-name": "Amresh Mohapatra",
+        "sem-id": ["7-sem-2021-btcseai","7-sem-2021-btcseds","7-sem-2021-btcsecs"],
+        "location": "405"
+    },
+    {
+        "course-name": "Competitive Coding",
+        "professor-name": "Anil Kumar Meher",
+        "sem-id": ["7-sem-2021-btcseai","7-sem-2021-btcseds","7-sem-2021-btcsecs"],
+        "location": "405"
+    }
+]

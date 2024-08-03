@@ -1,7 +1,7 @@
 import { db } from '$lib/server/db';
 import { eq } from 'drizzle-orm';
 import type { PageServerLoad } from './$types';
-import { batchTable, programTable, specializationTable } from '$lib/server/db/schema';
+import { batchTable, programTable, specializationTable } from '$lib/server/db/old_schema';
 
 export const load: PageServerLoad = async (event) => {
 	return {

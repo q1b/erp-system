@@ -3,7 +3,7 @@ import { fail } from 'sveltekit-superforms';
 import { getCreateRoleForm } from './index.js';
 import { validateUser } from '$lib/server/index.js';
 import { db } from "$lib/server/db/index.js";
-import { roleTable } from "$lib/server/db/schema";
+import { roleTable } from "$lib/server/db/old_schema/index.js";
 
 export const load: PageServerLoad = async () => {
   return {

@@ -1,0 +1,29 @@
+[
+    {
+        "active": true,
+        "id": "7-sem-2021-btcseai",
+        "name": "4th Year 7th Semester - B.tech Computer Science",
+        "start_at": "2024-6-15",
+        "end_at": "2024-11-28",
+        "program_code": "btcseai",
+        "batch_code": "2021-btcseai"
+    },
+    {
+        "active": true,
+        "id": "7-sem-2021-btcseds",
+        "name": "4th Year 7th Semester - B.tech Computer Science",
+        "start_at": "2024-6-15",
+        "end_at": "2024-11-28",
+        "program_code": "btcseds",
+        "batch_code": "2021-btcseds"
+    },
+    {
+        "active": true,
+        "id": "7-sem-2021-btcsecs",
+        "name": "4th Year 7th Semester - B.tech Computer Science",
+        "start_at": "2024-6-15",
+        "end_at": "2024-11-28",
+        "program_code": "btcsecs",
+        "batch_code": "2021-btcsecs"
+    }
+]

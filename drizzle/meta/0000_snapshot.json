@@ -1,150 +1,9 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "836411c8-d68f-4bed-9f24-6873666a182e",
+  "id": "70aa9073-0dbf-47c6-8bdd-5db28c71d8e4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "domain": {
-      "name": "domain",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "building": {
-      "name": "building",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "room": {
-      "name": "room",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "number": {
-          "name": "number",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "building_id": {
-          "name": "building_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "capacity": {
-          "name": "capacity",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "room_building_id_building_id_fk": {
-          "name": "room_building_id_building_id_fk",
-          "tableFrom": "room",
-          "tableTo": "building",
-          "columnsFrom": [
-            "building_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "role": {
-      "name": "role",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "label": {
-          "name": "label",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
     "user": {
       "name": "user",
       "columns": {
@@ -212,10 +71,40 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
+          "onDelete": "set default",
+          "onUpdate": "cascade"
         }
       },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "role": {
+      "name": "role",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
@@ -327,8 +216,8 @@
       },
       "uniqueConstraints": {}
     },
-    "program": {
-      "name": "program",
+    "professor": {
+      "name": "professor",
       "columns": {
         "id": {
           "name": "id",
@@ -337,52 +226,8 @@
           "notNull": true,
           "autoincrement": false
         },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "description": {
-          "name": "description",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "specialization": {
-      "name": "specialization",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "short_name": {
-          "name": "short_name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "program_id": {
-          "name": "program_id",
+        "user_id": {
+          "name": "user_id",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
@@ -391,12 +236,12 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "specialization_program_id_program_id_fk": {
-          "name": "specialization_program_id_program_id_fk",
-          "tableFrom": "specialization",
-          "tableTo": "program",
+        "professor_user_id_user_id_fk": {
+          "name": "professor_user_id_user_id_fk",
+          "tableFrom": "professor",
+          "tableTo": "user",
           "columnsFrom": [
-            "program_id"
+            "user_id"
           ],
           "columnsTo": [
             "id"
@@ -429,7 +274,7 @@
           "name": "code",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "created_at": {
@@ -443,50 +288,6 @@
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "courseModule": {
-      "name": "courseModule",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "course_id": {
-          "name": "course_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "courseModule_course_id_course_id_fk": {
-          "name": "courseModule_course_id_course_id_fk",
-          "tableFrom": "courseModule",
-          "tableTo": "course",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
@@ -534,7 +335,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -551,6 +352,14 @@
           "notNull": true,
           "autoincrement": false
         },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
         "user_id": {
           "name": "user_id",
           "type": "text",
@@ -558,15 +367,15 @@
           "notNull": false,
           "autoincrement": false
         },
-        "batch_id": {
-          "name": "batch_id",
+        "program_id": {
+          "name": "program_id",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
-        "section_id": {
-          "name": "section_id",
+        "batch_id": {
+          "name": "batch_id",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
@@ -588,12 +397,12 @@
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "student_batch_id_batch_id_fk": {
-          "name": "student_batch_id_batch_id_fk",
+        "student_program_id_program_id_fk": {
+          "name": "student_program_id_program_id_fk",
           "tableFrom": "student",
-          "tableTo": "batch",
+          "tableTo": "program",
           "columnsFrom": [
-            "batch_id"
+            "program_id"
           ],
           "columnsTo": [
             "id"
@@ -601,53 +410,9 @@
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "student_section_id_batch_section_id_fk": {
-          "name": "student_section_id_batch_section_id_fk",
+        "student_batch_id_batch_id_fk": {
+          "name": "student_batch_id_batch_id_fk",
           "tableFrom": "student",
-          "tableTo": "batch_section",
-          "columnsFrom": [
-            "section_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "batch_section": {
-      "name": "batch_section",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "batch_id": {
-          "name": "batch_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "batch_section_batch_id_batch_id_fk": {
-          "name": "batch_section_batch_id_batch_id_fk",
-          "tableFrom": "batch_section",
           "tableTo": "batch",
           "columnsFrom": [
             "batch_id"
@@ -686,13 +451,6 @@
           "notNull": false,
           "autoincrement": false
         },
-        "specialization_id": {
-          "name": "specialization_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
         "created_at": {
           "name": "created_at",
           "type": "text",
@@ -714,28 +472,15 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        },
-        "batch_specialization_id_specialization_id_fk": {
-          "name": "batch_specialization_id_specialization_id_fk",
-          "tableFrom": "batch",
-          "tableTo": "specialization",
-          "columnsFrom": [
-            "specialization_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "timetable": {
-      "name": "timetable",
+    "program": {
+      "name": "program",
       "columns": {
         "id": {
           "name": "id",
@@ -750,15 +495,43 @@
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "coordinator_id": {
+          "name": "coordinator_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {},
-      "foreignKeys": {},
+      "foreignKeys": {
+        "program_coordinator_id_professor_id_fk": {
+          "name": "program_coordinator_id_professor_id_fk",
+          "tableFrom": "program",
+          "tableTo": "professor",
+          "columnsFrom": [
+            "coordinator_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "period": {
-      "name": "period",
+    "semester": {
+      "name": "semester",
       "columns": {
         "id": {
           "name": "id",
@@ -767,8 +540,16 @@
           "notNull": true,
           "autoincrement": false
         },
-        "day": {
-          "name": "day",
+        "active": {
+          "name": "active",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": true
+        },
+        "name": {
+          "name": "name",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
@@ -781,22 +562,80 @@
           "notNull": false,
           "autoincrement": false
         },
-        "duration": {
-          "name": "duration",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "timetable_id": {
-          "name": "timetable_id",
+        "end_at": {
+          "name": "end_at",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
-        "lecture_to_batch_id": {
-          "name": "lecture_to_batch_id",
+        "program_id": {
+          "name": "program_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "batch_id": {
+          "name": "batch_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "semester_program_id_program_id_fk": {
+          "name": "semester_program_id_program_id_fk",
+          "tableFrom": "semester",
+          "tableTo": "program",
+          "columnsFrom": [
+            "program_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "semester_batch_id_batch_id_fk": {
+          "name": "semester_batch_id_batch_id_fk",
+          "tableFrom": "semester",
+          "tableTo": "batch",
+          "columnsFrom": [
+            "batch_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "semester_lecture_period": {
+      "name": "semester_lecture_period",
+      "columns": {
+        "period_id": {
+          "name": "period_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "semester_lecture_id": {
+          "name": "semester_lecture_id",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
@@ -805,12 +644,12 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "period_timetable_id_timetable_id_fk": {
-          "name": "period_timetable_id_timetable_id_fk",
-          "tableFrom": "period",
-          "tableTo": "timetable",
+        "semester_lecture_period_period_id_semester_id_fk": {
+          "name": "semester_lecture_period_period_id_semester_id_fk",
+          "tableFrom": "semester_lecture_period",
+          "tableTo": "semester",
           "columnsFrom": [
-            "timetable_id"
+            "period_id"
           ],
           "columnsTo": [
             "id"
@@ -818,17 +657,181 @@
           "onDelete": "cascade",
           "onUpdate": "no action"
         },
-        "period_lecture_to_batch_id_lecture_to_batch_id_fk": {
-          "name": "period_lecture_to_batch_id_lecture_to_batch_id_fk",
-          "tableFrom": "period",
-          "tableTo": "lecture_to_batch",
+        "semester_lecture_period_semester_lecture_id_semester_lecture_id_fk": {
+          "name": "semester_lecture_period_semester_lecture_id_semester_lecture_id_fk",
+          "tableFrom": "semester_lecture_period",
+          "tableTo": "semester_lecture",
           "columnsFrom": [
-            "lecture_to_batch_id"
+            "semester_lecture_id"
           ],
           "columnsTo": [
             "id"
           ],
           "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "semester_lecture_period_period_id_semester_lecture_id_pk": {
+          "columns": [
+            "period_id",
+            "semester_lecture_id"
+          ],
+          "name": "semester_lecture_period_period_id_semester_lecture_id_pk"
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "semester_lecture": {
+      "name": "semester_lecture",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "semester_id": {
+          "name": "semester_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "lecture_id": {
+          "name": "lecture_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "semester_lecture_semester_id_semester_id_fk": {
+          "name": "semester_lecture_semester_id_semester_id_fk",
+          "tableFrom": "semester_lecture",
+          "tableTo": "semester",
+          "columnsFrom": [
+            "semester_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "semester_lecture_lecture_id_lecture_id_fk": {
+          "name": "semester_lecture_lecture_id_lecture_id_fk",
+          "tableFrom": "semester_lecture",
+          "tableTo": "lecture",
+          "columnsFrom": [
+            "lecture_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "lecture": {
+      "name": "lecture",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "active": {
+          "name": "active",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "program_id": {
+          "name": "program_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "course_id": {
+          "name": "course_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "professor_id": {
+          "name": "professor_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "location": {
+          "name": "location",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "lecture_program_id_program_id_fk": {
+          "name": "lecture_program_id_program_id_fk",
+          "tableFrom": "lecture",
+          "tableTo": "program",
+          "columnsFrom": [
+            "program_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "lecture_course_id_course_id_fk": {
+          "name": "lecture_course_id_course_id_fk",
+          "tableFrom": "lecture",
+          "tableTo": "course",
+          "columnsFrom": [
+            "course_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "lecture_professor_id_professor_id_fk": {
+          "name": "lecture_professor_id_professor_id_fk",
+          "tableFrom": "lecture",
+          "tableTo": "professor",
+          "columnsFrom": [
+            "professor_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
           "onUpdate": "no action"
         }
       },
@@ -887,7 +890,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         },
         "attendance_student_id_student_id_fk": {
@@ -900,15 +903,15 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "lecture": {
-      "name": "lecture",
+    "period": {
+      "name": "period",
       "columns": {
         "id": {
           "name": "id",
@@ -917,22 +920,29 @@
           "notNull": true,
           "autoincrement": false
         },
-        "semester": {
-          "name": "semester",
+        "day": {
+          "name": "day",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "start_at": {
+          "name": "start_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "duration": {
+          "name": "duration",
           "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
-        "professor_id": {
-          "name": "professor_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "course_id": {
-          "name": "course_id",
+        "timetable_id": {
+          "name": "timetable_id",
           "type": "text",
           "primaryKey": false,
           "notNull": false,
@@ -941,38 +951,25 @@
       },
       "indexes": {},
       "foreignKeys": {
-        "lecture_professor_id_professor_id_fk": {
-          "name": "lecture_professor_id_professor_id_fk",
-          "tableFrom": "lecture",
-          "tableTo": "professor",
+        "period_timetable_id_timetable_id_fk": {
+          "name": "period_timetable_id_timetable_id_fk",
+          "tableFrom": "period",
+          "tableTo": "timetable",
           "columnsFrom": [
-            "professor_id"
+            "timetable_id"
           ],
           "columnsTo": [
             "id"
           ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        },
-        "lecture_course_id_course_id_fk": {
-          "name": "lecture_course_id_course_id_fk",
-          "tableFrom": "lecture",
-          "tableTo": "course",
-          "columnsFrom": [
-            "course_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "lecture_to_batch": {
-      "name": "lecture_to_batch",
+    "timetable": {
+      "name": "timetable",
       "columns": {
         "id": {
           "name": "id",
@@ -981,127 +978,16 @@
           "notNull": true,
           "autoincrement": false
         },
-        "lecture_id": {
-          "name": "lecture_id",
+        "name": {
+          "name": "name",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "batch_id": {
-          "name": "batch_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "batch_section_id": {
-          "name": "batch_section_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
-        "roomId": {
-          "name": "roomId",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {
-        "lecture_to_batch_lecture_id_lecture_id_fk": {
-          "name": "lecture_to_batch_lecture_id_lecture_id_fk",
-          "tableFrom": "lecture_to_batch",
-          "tableTo": "lecture",
-          "columnsFrom": [
-            "lecture_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "lecture_to_batch_batch_id_batch_id_fk": {
-          "name": "lecture_to_batch_batch_id_batch_id_fk",
-          "tableFrom": "lecture_to_batch",
-          "tableTo": "batch",
-          "columnsFrom": [
-            "batch_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "lecture_to_batch_batch_section_id_batch_section_id_fk": {
-          "name": "lecture_to_batch_batch_section_id_batch_section_id_fk",
-          "tableFrom": "lecture_to_batch",
-          "tableTo": "batch_section",
-          "columnsFrom": [
-            "batch_section_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        },
-        "lecture_to_batch_roomId_room_id_fk": {
-          "name": "lecture_to_batch_roomId_room_id_fk",
-          "tableFrom": "lecture_to_batch",
-          "tableTo": "room",
-          "columnsFrom": [
-            "roomId"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "set null",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "professor": {
-      "name": "professor",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
-        },
-        "user_id": {
-          "name": "user_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "professor_user_id_user_id_fk": {
-          "name": "professor_user_id_user_id_fk",
-          "tableFrom": "professor",
-          "tableTo": "user",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     }

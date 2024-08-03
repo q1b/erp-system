@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Aradhana Kar",
+        "email": "aradhana.k@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Sudhir Mohapatra",
+        "email": "sudhir.mohapatre@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Saumendra Kumar Mohapatra",
+        "email": "saumendra.m@srisriuniversity.edu.in",
+        "role":"professor"
+    },
+    {
+        "name": "Chinmaya Kumar Nayak",
+        "email": "chinmaya.n@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Deepak Sahoo",
+        "email": "deepak.s@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Amresh Mohapatra",
+        "email": "amresh.m@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Anil Kumar Meher",
+        "email": "anil.meher@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Nilamadhab Dash",
+        "email": "nilamadhab.d@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Pradipta Kumar Mishra",
+        "email": "pradipta.m@srisriuniversity.edu.in",
+        "role": "professor"
+    },
+    {
+        "name": "Gopikrishna Panda",
+        "email": "gopikrishna.p@srisriuniversity.edu.in",
+        "role": "professor"
+    }
+]

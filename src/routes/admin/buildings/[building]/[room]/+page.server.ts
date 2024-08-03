@@ -1,6 +1,6 @@
 import { validateUser } from '$lib/server';
 import { db } from '$lib/server/db';
-import { roomTable } from '$lib/server/db/schema';
+import { roomTable } from '$lib/server/db/old_schema';
 import { eq } from 'drizzle-orm';
 import type { Actions } from './$types';
 

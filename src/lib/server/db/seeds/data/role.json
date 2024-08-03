@@ -1,0 +1,22 @@
+[
+    {
+        "id": "admin",
+        "label": "Admin",
+        "description": "Admin role"
+    },
+    {
+        "id": "professor",
+        "label": "Professor",
+        "description": "Professor role"
+    },
+    {
+        "id": "student",
+        "label": "Student",
+        "description": "Student role"
+    },
+    {
+        "id": "user",
+        "label": "User",
+        "description": "User role"
+    }
+]

@@ -6,7 +6,7 @@ import { text } from 'drizzle-orm/sqlite-core';
 
 export const professorTable = table('professor', {
 	id,
-	userId: text('user_id').references(() => userTable.id, { onDelete: 'cascade', onUpdate: 'no action' }),
+	userId: text('user_id').references(() => userTable.id, { onDelete: 'cascade' }),
 });
 
 export const professorRelation = relations(professorTable, ({ one,many }) => ({
