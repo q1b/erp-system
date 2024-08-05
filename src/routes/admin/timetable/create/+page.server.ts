@@ -3,7 +3,7 @@ import { fail } from 'sveltekit-superforms';
 import { getCreateTimetableForm } from './index.js';
 import { validateUser } from '$lib/server/index.js';
 import { db } from '$lib/server/db/index.js';
-import { timetableTable } from '$lib/server/db/old_schema/index.js';
+import { timetableTable } from '$lib/server/db/schema/index.js';
 
 export const load: PageServerLoad = async () => {
 	return {

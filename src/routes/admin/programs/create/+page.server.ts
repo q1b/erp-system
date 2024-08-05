@@ -3,7 +3,7 @@ import { fail } from 'sveltekit-superforms';
 import { getCreateProgramForm } from './index.js';
 import { validateUser } from '$lib/server/index.js';
 import { db } from '$lib/server/db/index.js';
-import { programTable } from '$lib/server/db/old_schema/program/index.js';
+import { programTable } from '$lib/server/db/schema/program/index.js';
 
 export const load: PageServerLoad = async () => {
 	return {

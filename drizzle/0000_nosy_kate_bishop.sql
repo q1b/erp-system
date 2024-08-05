@@ -81,8 +81,8 @@ CREATE TABLE `program` (
 --> statement-breakpoint
 CREATE TABLE `semester` (
 	`id` text PRIMARY KEY NOT NULL,
-	`active` integer DEFAULT true,
-	`name` text NOT NULL,
+	`completed` integer DEFAULT false,
+	`number` integer NOT NULL,
 	`start_at` text,
 	`end_at` text,
 	`program_id` text,
@@ -111,12 +111,10 @@ CREATE TABLE `semester_lecture` (
 CREATE TABLE `lecture` (
 	`id` text PRIMARY KEY NOT NULL,
 	`active` integer,
-	`program_id` text,
 	`course_id` text,
 	`professor_id` text,
 	`location` text,
 	`created_at` text DEFAULT (current_timestamp),
-	FOREIGN KEY (`program_id`) REFERENCES `program`(`id`) ON UPDATE no action ON DELETE cascade,
 	FOREIGN KEY (`course_id`) REFERENCES `course`(`id`) ON UPDATE no action ON DELETE cascade,
 	FOREIGN KEY (`professor_id`) REFERENCES `professor`(`id`) ON UPDATE no action ON DELETE set null
 );

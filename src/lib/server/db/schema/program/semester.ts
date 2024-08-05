@@ -7,8 +7,8 @@ import { semesterLectureTable } from "./semester-lecture";
 
 export const semesterTable = table('semester', {
     id,
-    active: integer('active', {mode:'boolean'}).default(true),
-    name: text('name').notNull(),
+    completed: integer('completed', {mode:'boolean'}).default(false),
+    number: integer('number').notNull(),
     startAt: text('start_at'),
     endAt: text('end_at'),
     programId: text('program_id').references(() => programTable.id, { onDelete: 'cascade' }),

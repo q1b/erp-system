@@ -9,6 +9,7 @@ export const programTable = table('program', {
 	id,
 	name: text('name').notNull(),
 	description: text('description'),
+	fullname: text('fullname'),
 	coordinatorId: text('coordinator_id').references(() => professorTable.id, { onDelete: 'set null' }),
 });
 

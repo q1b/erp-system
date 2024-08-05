@@ -3,7 +3,7 @@ import { fail } from 'sveltekit-superforms';
 import { getCreateCourseForm } from '.';
 import { validateUser } from '$lib/server/index.js';
 import { db } from '$lib/server/db/index.js';
-import { courseTable } from '$lib/server/db/old_schema/program/course/index.js';
+import { courseTable } from '$lib/server/db/schema/program/course/index.js';
 
 export const load: PageServerLoad = async () => {
 	return {

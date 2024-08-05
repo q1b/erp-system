@@ -30,6 +30,7 @@
 		"globals": "^15.9.0",
 		"just-group-by": "^2.2.0",
 		"lucide-svelte": "^0.424.0",
+		"ordinal": "^1.0.3",
 		"postcss": "^8.4.40",
 		"prettier": "^3.3.3",
 		"prettier-plugin-svelte": "^3.2.6",

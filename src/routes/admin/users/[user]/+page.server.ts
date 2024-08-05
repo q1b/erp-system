@@ -1,6 +1,6 @@
 import { validateUser } from '$lib/server';
 import { db } from '$lib/server/db';
-import { userTable } from '$lib/server/db/old_schema';
+import { userTable } from '$lib/server/db/schema';
 import { eq } from 'drizzle-orm';
 import type { Actions, PageServerLoad } from './$types';
 

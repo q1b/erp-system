@@ -13,7 +13,7 @@ export const semesterLectureTable = table('semester_lecture', {
         .references(() => lectureTable.id, { onDelete: 'cascade' }),
 });
 
-export const semesterLectureTableRelations = relations(semesterLectureTable, ({ one }) => ({
+export const semesterLectureTableRelations = relations(semesterLectureTable, ({ one, many }) => ({
     semester: one(semesterTable, {
         fields: [semesterLectureTable.semesterId],
         references: [semesterTable.id],
@@ -22,6 +22,7 @@ export const semesterLectureTableRelations = relations(semesterLectureTable, ({ 
         fields: [semesterLectureTable.lectureId],
         references: [lectureTable.id],
     }),
+    periods: many(semesterLecturePeriodTable),
 }));
 
 export const semesterLecturePeriodTable = table(
