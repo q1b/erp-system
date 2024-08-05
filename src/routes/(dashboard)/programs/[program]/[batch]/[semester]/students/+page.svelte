@@ -1,17 +1,26 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import * as Table from '$lib/components/ui/table';
 
 	let { data } = $props();
-	let open = $state(false);
+	let view = $state<'grid' | 'table'>('grid');
 </script>
 
 <div class="flex justify-between items-center p-6">
-        <Card.Title>List of Students</Card.Title>
+	<Card.Header class="p-0">
+		<Card.Title>Users</Card.Title>
+		<Card.Description>Manage your users list</Card.Description>
+	</Card.Header>
+	<Button
+		onclick={() => {
+			if (view === 'grid') view = 'table';
+			else view = 'grid';
+		}}>{(view === 'grid' ? 'table' : 'grid').toLocaleUpperCase()}</Button
+	>
 </div>
-<Card.Content>
-	<Table.Root>
+{#if view === 'table'}
+<Table.Root>
 		<Table.Header>
 			<Table.Row>
 				<Table.Head>Name</Table.Head>
@@ -31,10 +40,25 @@
 					<Table.Row>
 						<Table.Cell>{student.user?.name}</Table.Cell>
 						<Table.Cell>{student.user?.email}</Table.Cell>
-                        <Table.Cell>{student.user?.createdAt}</Table.Cell>
+						<Table.Cell>{student.user?.createdAt}</Table.Cell>
 					</Table.Row>
 				{/each}
 			{/await}
 		</Table.Body>
 	</Table.Root>
-</Card.Content>
+{:else}
+	{#await data.studentList}
+		<p>Loading ...</p>
+	{:then students}
+	<Card.Content class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+		{#each students as student}
+			<Card.Root>
+				<Card.Header>
+					<Card.Title>{student.user?.name}</Card.Title>
+					<Card.Description class="truncate">{student.user?.email}</Card.Description>
+				</Card.Header>
+			</Card.Root>
+		{/each}
+		</Card.Content>
+	{/await}
+{/if}
